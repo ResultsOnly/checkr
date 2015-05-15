@@ -32,22 +32,10 @@ class Checkr {
 
 	/**
 	 * Creates a new candidate
-	 * @param  Person $p 				 person object
-	 * @param  array  $sensitive_params  sensitive information i.e ssn, drivers license #, drivers state
+	 * @param  array  $candidate_params  name, address, and sensitive information i.e ssn, drivers license #, drivers state
 	 * @return object $candidate         object returned from resource
 	 */
-	public function createCandidate(Person $p, $sensitive_params = []) {
-
-		$default_params = array(
-			'first_name' => $p->firstname,
-			'last_name' => $p->lastname,
-			'dob' => $p->birthday,
-			'phone' => $p->phone,
-			'email' => $p->email,
-			'zipcode' => $p->zip
-		);
-
-		$candidate_params = array_merge($default_params, $sensitive_params);
+	public function createCandidate($candidate_params = []) {
 
 		$candidate = $this->request('candidates', $candidate_params, true);
 

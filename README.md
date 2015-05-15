@@ -10,28 +10,26 @@ putenv("CHECKR_PRODUCTION_KEY=893968950d556d8f7d88138128a4adf51a8788a2");
 
 **Create a person**
 ```PHP
-$person = new Person;
-$person->firstname = 'Sheldon';
-$person->lastname = 'Cooper';
-$person->birthday = '10/08/1983';
-$person->email = 'scoop@example.com';
-$person->phone = '5555555555';
-$person->address = '2311 Los Robles';
-$person->city = 'Pasedena';
-$person->state = 'CA';
-$person->zip = '90041';
-
-$sensitive_params = [
-    'ssn' => '111-11-2001',
-    'driver_license_number' => 'F1112002',
-    'driver_license_state' => 'CA'
+$person = [
+	'first_name' => 'Sheldon',
+	'last_name' => 'Cooper',
+	'dob' => '10/08/1983',
+	'email' => 'scoop@example.com',
+	'phone' => '5555555555',
+	'address' => '2311 Los Robles',
+	'city' => 'Pasedena',
+	'state' => 'CA',
+	'zipcode' => '90041',
+	'ssn' => '111-11-2001',
+	'driver_license_number' => 'F1112002',
+	'driver_license_state' => 'CA'
 ];
 ```
 
 **Create candidate**
 ```PHP
 $checkr = new Checkr();
-$candidate = $checkr->createCandidate($person, $sensitive_params);
+$candidate = $checkr->createCandidate($person);
 ```
 
 **List candidates**
